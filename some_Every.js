@@ -49,3 +49,23 @@ function hasOnlyOddNumbers(array){
 }
 console.log(hasOnlyOddNumbers([1,3,5,7]));
 console.log(hasOnlyOddNumbers([1,2,3,5,7]));
+
+/*
+hasNoDuplicates
+Write a function called hasNoDuplicates which accepts an array and returns true if there are
+ no duplicate values (more than one element in the array that has the same value as another). If there are any duplicates, the function should return false.
+hasNoDuplicates([1,2,3,1]) // false
+hasNoDuplicates([1,2,3]) // true
+*/
+function hasNoDuplicates(array){
+    //find an index of an element, also find lastIndexOf that element; compare them if they hold the same value
+    return array.every(function(val){
+        return array.indexOf(val) === array.lastIndexOf(val);
+      });
+}
+console.log(hasNoDuplicates([1,2,3,1]));
+console.log(hasNoDuplicates([1,2,3])); 
+console.log(hasNoDuplicates([]));
+console.log(hasNoDuplicates([1,2,2]));
+
+
