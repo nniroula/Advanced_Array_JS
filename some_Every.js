@@ -98,4 +98,32 @@ let arr = [
 console.log(hasCertainKey(arr,'first'));
 console.log(hasCertainKey(arr,'isCatOwner'));
 
+/*
+        hasCertainValue
+Write a function called hasCertainValue which accepts an array of objects and a key, and a 
+value, and returns true if every single object in the array contains that value for the 
+specific key. Otherwise it should return false.
+let arr = [
+    {title: "Instructor", first: 'Elie', last:"Schoppik"},
+    {title: "Instructor", first: 'Tim', last:"Garcia", isCatOwner: true},
+    {title: "Instructor", first: 'Matt', last:"Lane"},
+    {title: "Instructor", first: 'Colt', last:"Steele", isCatOwner: true}
+  ]
 
+  hasCertainValue(arr,'title','Instructor') // true
+  hasCertainValue(arr,'first','Elie') // false
+*/
+function hasCertainValue(array, key, value){
+    return array.every(function(val){
+        return val[key] === value;
+    })
+}
+let arr1 = [
+    {title: "Instructor", first: 'Elie', last:"Schoppik"},
+    {title: "Instructor", first: 'Tim', last:"Garcia", isCatOwner: true},
+    {title: "Instructor", first: 'Matt', last:"Lane"},
+    {title: "Instructor", first: 'Colt', last:"Steele", isCatOwner: true}
+  ]
+
+console.log(hasCertainValue(arr1,'title','Instructor'));
+console.log( hasCertainValue(arr1,'first','Elie'));
