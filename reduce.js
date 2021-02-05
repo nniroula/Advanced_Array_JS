@@ -29,6 +29,7 @@ vowelCount('Matt') // {a:1})
 vowelCount('hmmm') // {};
 vowelCount('I Am awesome and so are you') // {i: 1, a: 4, e: 3, o: 3, u: 1};
 */
+
 function vowelCount(str){
     // Note: it does not return an array, rather returns things like string, or object
     //let obj = {};  // this can be substituted by second parameter
@@ -53,4 +54,31 @@ console.log(vowelCount('Matt'));
 console.log(vowelCount('hmmm'));
 console.log(vowelCount('I Am awesome and so are you'));
 
+/*
+        addKeyAndValue
+Write a function called addKeyAndValue which accepts an array of objects and returns the 
+array of objects passed to it with each object now including the key and value passed to the 
+function.
+const arr = [{name: 'Elie'}, {name: 'Tim'}, {name: 'Matt'}, {name: 'Colt'}];
+addKeyAndValue(arr, 'title', 'Instructor') //
+
+[
+  {title: 'Instructor', name: 'Elie'},
+  {title: 'Instructor', name: 'Tim'},
+  {title: 'Instructor', name: 'Matt'},
+  {title: 'Instructor', name: 'Colt'}
+]
+*/
+function addKeyAndValue(array, key, value){
+    return array.reduce(function(accumulator, nextValue, index){
+    // Need to decipher to the accumulator, and to the value it is holding
+        let accumulatorVal = accumulator[index];
+        //assign key and value to it
+        accumulatorVal[key] = value;
+        return accumulator;
+    //}, []);
+    }, arr);
+}
+const arr1 = [{name: 'Elie'}, {name: 'Tim'}, {name: 'Matt'}, {name: 'Colt'}];
+console.log(addKeyAndValue(arr1, 'title', 'Instructor'));
 
