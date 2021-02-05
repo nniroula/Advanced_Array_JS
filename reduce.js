@@ -69,6 +69,7 @@ addKeyAndValue(arr, 'title', 'Instructor') //
   {title: 'Instructor', name: 'Colt'}
 ]
 */
+
 function addKeyAndValue(array, key, value){
     return array.reduce(function(accumulator, nextValue, index){
     // Need to decipher to the accumulator, and to the value it is holding
@@ -81,4 +82,49 @@ function addKeyAndValue(array, key, value){
 }
 const arr1 = [{name: 'Elie'}, {name: 'Tim'}, {name: 'Matt'}, {name: 'Colt'}];
 console.log(addKeyAndValue(arr1, 'title', 'Instructor'));
+
+/*
+            partition
+Write a function called partition which accepts an array and a callback and returns an array 
+with two arrays inside of it. The partition function should run the callback function on each 
+value in the array and if the result of the callback function at that specific value is true, 
+the value should be placed in the first subarray. If the result of the callback function at 
+that specific value is false, the value should be placed in the second subarray.
+function isEven(val){
+  return val % 2 === 0;
+}
+const arr = [1,2,3,4,5,6,7,8];
+partition(arr, isEven) // [[2,4,6,8], [1,3,5,7]];
+
+function isLongerThanThreeCharacters(val){
+  return val.length > 3;
+}
+const names = ['Elie', 'Colt', 'Tim', 'Matt'];
+partition(names, isLongerThanThreeCharacters) // [['Elie', 'Colt', 'Matt'], ['Tim']]
+*/
+function partition(array, callback){
+    return array.reduce(function(accumulator, nextValue){
+        //if(callback === true){
+        if(callback(nextValue)){  //Idea adapted from solution given at the end
+            //accumulator.push(nextValue);
+            accumulator[0].push(nextValue); //Concept of [0] or [1] adapted from given solution
+        }else{
+            //accumulator.push(index);
+            accumulator[1].push(nextValue);
+        }
+        return accumulator;
+    // }, [], []);
+    }, [[], []]);
+}
+function isEven(val){
+    return val % 2 === 0;
+}
+const arr2 = [1,2,3,4,5,6,7,8];
+console.log(partition(arr2, isEven)); 
+  
+function isLongerThanThreeCharacters(val){
+    return val.length > 3;
+}
+const names = ['Elie', 'Colt', 'Tim', 'Matt'];
+console.log(partition(names, isLongerThanThreeCharacters)); 
 
